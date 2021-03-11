@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "titre": "json-server",
+      "Description": "typicode",
+      "categorie": "sport",
+      "date": ""
+    },
+    {
+      "id": 2,
+      "titre": "angular",
+      "Description": "typicode",
+      "categorie": "sport",
+      "date": ""
+    }
+
+  ]
+}

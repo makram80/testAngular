@@ -1,0 +1,67 @@
+<div class="container pt-5">
+    <div class="row justify-content-sm-center pt-5">
+        <div class="col-md-6 ">
+
+    <form [formGroup]="fg" (ngSubmit)="addCommentaire()">  
+
+    <div class="form-group">
+        <mat-form-field appearance="fill">
+            <mat-label>Titre</mat-label>
+            <input matInput formControlName="titre"  type="text">
+            <mat-error *ngIf="fg.controls.titre.touched && fg.controls.titre.invalid" >
+                <mat-error *ngIf="fg.controls.titre.errors?.required">titre is required.</mat-error>
+                <mat-error *ngIf="fg.controls.titre.errors?.minlength">titre should be 3 character min.</mat-error>
+                <mat-error *ngIf="fg.controls.titre.errors?.maxlength">titre should be 10 character max.</mat-error>
+                <mat-error *ngIf="fg.controls.titre.errors?.pattern">titre should be only character</mat-error>
+            </mat-error >
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field appearance="fill">
+            <mat-label>description</mat-label>
+            <input matInput formControlName="description" id="description" type="text">
+            <mat-error *ngIf="fg.controls.description.touched && fg.controls.description.invalid" >
+                <mat-error *ngIf="fg.controls.description.errors?.required">description is required.</mat-error>
+                <mat-error *ngIf="fg.controls.description.errors?.minlength">description should be 3 character min.</mat-error>
+                <mat-error *ngIf="fg.controls.description.errors?.maxlength">description should be 10 character max.</mat-error>
+                <mat-error *ngIf="fg.controls.description.errors?.pattern">descriptionshould be only character</mat-error>
+            </mat-error >
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Select Catégorie</mat-label>
+        <mat-select formControlName="categorie" >
+          <mat-option value="sport">Sport</mat-option>
+          <mat-option value="technologies">Technologies</mat-option>
+          <mat-option value="economie">Économie</mat-option>
+          <mat-option value="société">Société</mat-option>
+          <mat-option value="culture">Culture</mat-option>
+        </mat-select>
+        <mat-hint align="end">dropdown arrow ^</mat-hint>
+      </mat-form-field> 
+    </div>
+
+    <div class="form-group">
+    <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Angular forms" formControlName="datee">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div> 
+
+
+    <div class="text-center">
+    <button type="submit" [disabled]="!fg.valid" class="btn btn-primary btn-rounded mx-2">Submit</button>
+    <button  type="button" class="btn btn-outline-dark btn-rounded" data-mdb-ripple-color="dark" type="reset" >Reset</button>
+    </div>
+
+    </form>
+      </div>
+  </div>
+</div>
+
+
